@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "27616897928",
+    "project_id": "hardware-2c430",
+    "storage_bucket": "hardware-2c430.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:27616897928:android:86d01c691da0215f3c683d",
+        "android_client_info": {
+          "package_name": "com.example.hardwarelab"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAZF0rHVGJNpGV_8hTfQXuXPZ7o-fMJk18"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

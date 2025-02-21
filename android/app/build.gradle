@@ -1,0 +1,54 @@
+plugins {
+    id "com.android.application"
+    id "kotlin-android"
+    // START: FlutterFire Configuration
+    id "com.google.gms.google-services"
+    // END: FlutterFire Configuration
+    id "dev.flutter.flutter-gradle-plugin"
+}
+
+android {
+    namespace = "com.example.hardwarelab"  // Make sure this is correct and unique to your app
+    compileSdk = flutter.compileSdkVersion  // Uses Flutter's SDK version automatically
+    
+    ndkVersion = flutter.ndkVersion
+
+    defaultConfig {
+        applicationId = "com.example.hardwarelab"  // Must match your namespace
+        minSdk = 24  // Min SDK Version is set to 24
+        targetSdk = flutter.targetSdkVersion
+        versionCode = flutter.versionCode
+        versionName = flutter.versionName
+    }
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
+    buildTypes {
+        release {
+            // Using debug signing temporarily for testing
+            signingConfig signingConfigs.debug  
+            minifyEnabled false
+            shrinkResources false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    buildToolsVersion "34.0.0"  // Explicitly define build tools version to avoid compatibility issues
+}
+
+dependencies {
+    // Add Bluetooth-related dependencies
+    implementation 'androidx.appcompat:appcompat:1.3.0' 
+    implementation 'com.google.firebase:firebase-firestore:24.3.1' // AppCompat dependency
+}
+
+flutter {
+    source = "../.."  // Points to the Flutter SDK's source directory
+}

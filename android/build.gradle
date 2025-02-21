@@ -1,0 +1,38 @@
+// Top-level build.gradle file for the project
+
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        // Android Gradle Plugin for Gradle 8.11.1 compatibility
+        classpath 'com.android.tools.build:gradle:8.2.1' // Make sure this is compatible with your Gradle version (8.11.1)
+        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.8.22' // Kotlin plugin version
+        classpath 'com.google.gms:google-services:4.3.15'  // Google Services plugin for Firebase and other services
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+rootProject.buildDir = "../build" // Define the root build directory
+
+// This ensures all subprojects will have their build outputs under the root build directory
+subprojects {
+    project.buildDir = "${rootProject.buildDir}/${project.name}"
+}
+
+// Ensure the app project is evaluated first
+subprojects {
+    project.evaluationDependsOn(":app")
+}
+
+// Register a clean task that deletes the build directory
+tasks.register("clean", Delete) {
+    delete rootProject.buildDir
+}
